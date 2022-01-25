@@ -1,6 +1,9 @@
 <?php
 try {
-    unlink(dirname(__DIR__) . '/dist/ant-test.phar');
+    if (file_exists(dirname(__DIR__) . '/dist/ant-test.phar')) {
+        unlink(dirname(__DIR__) . '/dist/ant-test.phar');
+    }
+
     $phar = new Phar(dirname(__DIR__) . '/dist/ant-test.phar', 0, 'ant-test.phar');
     $phar = $phar->convertToExecutable();
     $phar->setStub(file_get_contents( dirname(__DIR__) . "/build/stub.php"));
