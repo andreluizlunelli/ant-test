@@ -9,7 +9,7 @@ beforeEach(function () {
     app()->bind(PathProps::class, fn() => new PathProps($resourcesPath));
 });
 
-it('can fetch class path from file', function () {
+it('can fetch file name', function () {
     $file = new SplFileInfo(base_path('tests/Resources/app/BusinessFile.php'));
 
     expect(File::fromFileInfo($file)->classPath())->toBe('/app');
