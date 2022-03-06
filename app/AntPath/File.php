@@ -19,8 +19,28 @@ class File
         return $that;
     }
 
-    public function classPath(): string
+    public function path(): string
     {
         return Str::remove($this->props->basePath, $this->fileInfo->getPath());
+    }
+
+    public function fullPath(): string
+    {
+        return Str::remove($this->props->basePath, $this->fileInfo->getPath()) . '/' . $this->fileName();
+    }
+
+    public function fileName(): string
+    {
+        return $this->fileInfo->getFilename();
+    }
+
+    public function isTestFile(): bool
+    {
+        return Str::contains($this->path(), '/tests');
+    }
+
+    public function isFromVendor(): bool
+    {
+        return Str::contains($this->path(), '/vendor/');
     }
 }

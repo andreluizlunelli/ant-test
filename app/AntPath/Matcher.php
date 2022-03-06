@@ -12,7 +12,7 @@ class Matcher
     {
         $count = 1;
 
-        return str_replace('app', '', $business->classPath(), $count)
-            === str_replace('tests', '', $test->classPath(), $count);
+        return str_replace('app', '', $business->path(), $count)
+            === str_replace('tests', '', $test->path(), $count);
     }
 }

@@ -9,10 +9,11 @@ beforeEach(function () {
     app()->bind(PathProps::class, fn() => new PathProps($resourcesPath));
 });
 
-it('can make files a collection with test files', function () {
-    $fileIterator = resolve(FileIterator::class);
+it('can make a collection from test files', function () {
+    /** @var FileIterator $fileIterator */
+    $fileIterator = resolve(FileIterator::class); // todo use array recursive iterator to represent folder structure @see https://www.php.net/manual/en/class.recursivearrayiterator.php
 
-    $files = $fileIterator->files();
+    $files = $fileIterator->testFiles();
 
-    expect($files)->toHaveCount(7);
+    expect($files)->toHaveCount(3);
 });
