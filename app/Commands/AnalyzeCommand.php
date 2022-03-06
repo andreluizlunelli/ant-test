@@ -2,7 +2,6 @@
 
 namespace App\Commands;
 
-use App\Actions\Analyze;
 use App\AntPath\File;
 use App\AntPath\FileIterator;
 use App\AntPath\PathProps;
