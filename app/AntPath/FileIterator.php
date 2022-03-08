@@ -36,6 +36,11 @@ class FileIterator
 
     public function testFiles(): Collection
     {
-        return $this->files()->filter(fn(File $file) => $file->isTestFile());
+        return $this->files()->filter(fn (File $file): bool => $file->isTestFile());
+    }
+
+    public function businessFiles(): Collection
+    {
+        return $this->files()->filter(fn (File $file): bool => !$file->isTestFile());
     }
 }

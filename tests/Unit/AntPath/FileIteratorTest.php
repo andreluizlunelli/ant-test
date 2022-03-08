@@ -13,7 +13,13 @@ it('can make a collection from test files', function () {
     /** @var FileIterator $fileIterator */
     $fileIterator = resolve(FileIterator::class); // todo use array recursive iterator to represent folder structure @see https://www.php.net/manual/en/class.recursivearrayiterator.php
 
-    $files = $fileIterator->testFiles();
-
-    expect($files)->toHaveCount(3);
+    expect($fileIterator->testFiles())->toHaveCount(4);
 });
+
+it('can make a collection from business files', function () {
+    /** @var FileIterator $fileIterator */
+    $fileIterator = resolve(FileIterator::class);
+
+    expect($fileIterator->businessFiles())->toHaveCount(5);
+});
+

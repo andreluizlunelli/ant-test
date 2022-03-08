@@ -19,5 +19,17 @@ it('can match business path with test path', function () {
         new SplFileInfo(base_path('tests/Resources/tests/Model/TeamTest.php'))
     );
 
-    expect(resolve(Matcher::class)->path($business, $testClass))->toBeTrue();
+    expect((new Matcher($business, $testClass))->matchPath())->toBeTrue();
+});
+
+it('can match wrong business name with s with test name', function () {
+    $business = File::fromFileInfo(
+        new SplFileInfo(base_path('tests/Resources/app/Model/Team.php'))
+    );
+
+    $testClass = File::fromFileInfo(
+        new SplFileInfo(base_path('tests/Resources/tests/Model/TeamTest.php'))
+    );
+
+    expect((new Matcher($business, $testClass))->matchName())->toBeTrue();
 });

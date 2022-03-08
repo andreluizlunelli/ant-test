@@ -1,9 +1,9 @@
 <?php
 // its file is only for testing purposes
 
-namespace Tests\Models;
+namespace Tests;
 
-class TeamTest
+class MyServiceTest
 {
 
 }
